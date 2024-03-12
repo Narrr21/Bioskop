@@ -1,0 +1,17 @@
+CREATE DATABASE data_film;
+USE data_film;
+
+CREATE TABLE film (
+	id integer PRIMARY KEY AUTO_INCREMENT,
+    title VARCHAR(255) NOT NULL,
+    release_year integer NOT NULL,
+    rating float NOT NULL DEFAULT 0.0
+);
+
+INSERT INTO film (title, release_year, rating)
+VALUES
+('Toy Story 1', '2000', '9.4'),
+('Toy Story 2', '2004', '9.0'),
+('Toy Story 3', '2009', '9.8');
+
+SELECT * FROM film;
