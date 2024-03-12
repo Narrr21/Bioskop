@@ -10,6 +10,16 @@ const pool = mysql.createPool({
     database: process.env.MYSQL_DATABASE
 }).promise()
 
+// Film
+async function getFilm() 
+{
+    const data = await pool.query(`
+    SELECT * 
+    FROM film
+    `)
+    return data[0][0]
+}
+
 async function getFilm(id) 
 {
     const data = await pool.query(`
@@ -28,8 +38,18 @@ async function addFilm(title, release_year, rating){
     return result
 }
 
-// addFilm('test 2', 2001, 8.1)
+async function deleteFilm(id){
+    const result = await pool.query(`
+    SELECT * 
+    FROM film
+    WHERE id = ?
+    `, [id])
+    return result
+}
+
+
 module.exports = {
     getFilm,
-    addFilm
+    addFilm,
+    deleteFilm
 }
