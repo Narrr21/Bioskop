@@ -17,4 +17,14 @@ router
         res.render('daftar/add', {filmUpdate: filmTitle})
     })
 
+router
+    .route('/delete')
+    .get(async (req, res) =>{
+        res.render('daftar/delete', {listFilm: await db.getAllFilm()})
+    })
+    .post(async (req, res) => {
+        var id = req.body.isDelete
+        var filmTitle = (await db.getFilmById(id))["title"]
+        res.render('daftar/delete', {filmUpdate: filmTitle, listFilm: await db.getAllFilm()})
+    })
 module.exports = router
