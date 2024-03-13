@@ -1,0 +1,8 @@
+<h2>add</h2>
+<h3><%= typeof filmUpdate !== 'undefined' ? `${filmUpdate} sudah ditambahkan` : "Tambahkan ifnormasi tentang film ini"%></h3>
+<form action="/daftar/add" method="post">
+    <label>Title</label><br>
+    <input type="text" name="title"><br>
+    <a href="/daftar/add">Cancel</a>
+    <button type="submit">Commit</button>
+</form>

@@ -11,22 +11,32 @@ const pool = mysql.createPool({
 }).promise()
 
 // Film
-async function getFilm() 
+async function getAllFilm() 
 {
     const data = await pool.query(`
     SELECT * 
     FROM film
     `)
-    return data[0][0]
+    return data[0]
 }
 
-async function getFilm(id) 
+async function getFilmById(id) 
 {
     const data = await pool.query(`
     SELECT * 
     FROM film
     WHERE id = ?
     `, [id])
+    return data[0][0]
+}
+
+async function getFilmByTitle(title) 
+{
+    const data = await pool.query(`
+    SELECT * 
+    FROM film
+    WHERE title = ?
+    `, [title])
     return data[0][0]
 }
 
@@ -49,7 +59,9 @@ async function deleteFilm(id){
 
 
 module.exports = {
-    getFilm,
+    getAllFilm,
+    getFilmById,
+    getFilmByTitle,
     addFilm,
     deleteFilm
 }
