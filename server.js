@@ -9,6 +9,7 @@ const bodyParser = require('body-parser')
 
 const homeRouter = require('./routes/home')
 const daftarRouter = require('./routes/daftar')
+const searchRouter = require('./routes/search')
 const db = require('./models/database')
 
 app.set('view engine', 'ejs')
@@ -21,6 +22,7 @@ app.use(bodyParser.urlencoded({ limit: '10mb', extended: false}))
 
 app.use('/home', homeRouter)
 app.use('/daftar', daftarRouter)
+app.use('/search', searchRouter)
 
 app.use((err, req, res, next) => {
     console.error(err.stack)

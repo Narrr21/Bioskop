@@ -1,0 +1,24 @@
+<h2>Search Film</h2>
+<form action="/search" method="post">
+  <label>Search: </label>
+  <input type="text" name="search">
+  <br>
+  <input type="radio" name="searchBy" value="id">imdb ID
+  <input type="radio" name="searchBy" value="title">title
+  <input type="radio" name="searchBy" value="year">year <br>
+  <button type="submit">Search</button>
+
+</form>
+<% if (listFilm == null) { %>
+  <h3>Silahkan cari film yang di inginkan</h3>
+<% } else if (listFilm.length > 0) { %>
+<ul>
+  <% for (let i = 0; i < listFilm.length; i++) { %>
+    <li class="list-film"><%= listFilm[i]["title"]%></li>
+  <% } %>
+</ul>
+<% } else if (listFilm.length == 0){ %>
+  <h3>Tidak ada film yang ditemukan</h3>
+<% } else { %>
+  <h3>Error</h3>
+<% } %>

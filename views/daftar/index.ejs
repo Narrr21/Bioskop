@@ -1,7 +1,14 @@
-all Film :
-<br>
-<ul>
+<h2>List Film</h2>
+<main>
     <% for (let i = 0; i < listFilm.length; i++) { %>
-        <li><%= listFilm[i]["title"]%></li>
+        <img height="150" width="100" src="<%= listFilm[i]["poster"]%>" alt="">
+        <section class="film-desc">
+            <ul>
+                <li class="list-film">Title : <%= listFilm[i]["title"]%></li>
+                <li class="list-film">imdb ID : <%= listFilm[i]["imdbID"]%></li>
+                <li class="list-film">Release Year : <%= listFilm[i]["release_year"]%></li>
+                <li class="list-film">Type : <%= listFilm[i]["workType"]%></li>
+            </ul>
+        </section>
     <% } %>
-</ul>
+</main>

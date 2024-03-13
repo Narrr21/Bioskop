@@ -1,8 +1,38 @@
-<h2>add</h2>
-<h3><%= typeof filmUpdate !== 'undefined' ? `${filmUpdate} sudah ditambahkan` : "Tambahkan ifnormasi tentang film ini"%></h3>
-<form action="/daftar/add" method="post">
-    <label>Title</label><br>
-    <input type="text" name="title"><br>
-    <a href="/daftar/add">Cancel</a>
-    <button type="submit">Commit</button>
-</form>
+<h2>Add Film</h2>
+<h3><%= typeof filmUpdate !== 'undefined' ? `${filmUpdate} sudah ditambahkan` : "Tambahkan informasi tentang film ini"%></h3>
+<div class="form">
+    <form action="/daftar/add" method="post">
+        <section>
+            <article>
+                <label>Title</label>
+                <input type="text" placeholder="Enter the title" name="title" required>
+            </article>
+        </section>
+        <section>
+            <article>
+                <label>imdbID</label>
+                <input type="text" placeholder="Enter the imdbID" name="id" required>
+            </article>
+        </section>
+        <section>
+            <article>
+                <label>Year</label>
+                <input type="text" placeholder="When dit it came out" name="year" required>
+            </article>
+        </section>
+        <section>
+            <article>
+                <label>Type</label>
+                <input type="text" placeholder="movie or series" name="type" required>
+            </article>
+        </section>
+        <section>
+            <article>
+                <label>Poster</label>
+                <input type="text" placeholder="Enter it's poster url" name="poster" required>
+            </article>
+        </section>
+        <button class="btn-primary" type="reset">reset</button>
+        <button class="btn-primary" type="submit">submit</button>
+    <br>
+</div>

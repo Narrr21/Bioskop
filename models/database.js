@@ -25,7 +25,7 @@ async function getFilmById(id)
     const data = await pool.query(`
     SELECT * 
     FROM film
-    WHERE id = ?
+    WHERE imdbID = ?
     `, [id])
     return data[0][0]
 }
@@ -40,28 +40,37 @@ async function getFilmByTitle(title)
     return data[0][0]
 }
 
-async function addFilm(title, release_year, rating){
+async function getFilmByYear(year) 
+{
+    const data = await pool.query(`
+    SELECT * 
+    FROM film
+    WHERE release_year = ?
+    `, [year])
+    return data[0]
+}
+
+async function addFilm(imdbID, title, year, type, poster){
     const result = await pool.query(`
-    INSERT INTO film (title, release_year, rating)
-    VALUES (?, ?, ?)
-    `, [title, release_year, rating])
+    INSERT INTO film (imdbID, title, release_year, workType, poster)
+    VALUES (?, ?, ?, ?, ?)
+    `, [imdbID, title, year, type, poster])
     return result
 }
 
-async function deleteFilm(id){
+async function deleteFilmById(id){
     const result = await pool.query(`
-    SELECT * 
-    FROM film
-    WHERE id = ?
+    DELETE FROM film
+    WHERE imdbID = ?
     `, [id])
     return result
 }
-
 
 module.exports = {
     getAllFilm,
     getFilmById,
     getFilmByTitle,
+    getFilmByYear,
     addFilm,
-    deleteFilm
+    deleteFilmById
 }

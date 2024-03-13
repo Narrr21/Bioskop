@@ -1,0 +1,78 @@
+@import 'shared/variables.css';
+@import 'shared/fonts.css';
+@import 'shared/header.css';
+@import 'shared/buttons.css';
+
+:root {
+  font-family: 'Gotham Rounded';
+  font-size: 20px;
+  color: var(--color-text-light);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(to right, var(--color-background-dark), var(--color-background-light));
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  margin-bottom: 3rem;
+}
+
+.inner-container {
+  margin: 0 2rem;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.del-list {
+  list-style: none;
+}
+.list-film {
+  list-style: none;
+}
+
+.form{
+  display: block;
+  justify-content: center;
+  max-width: 650 px;
+  padding: 28px;
+  border-radius: 10px;
+  background: var(--color-background-light);
+}
+
+.form section {
+  margin: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.form section article {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.form section article label{
+  width: min-content;
+  color: white;
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+.form section article input{
+  height: 40px;
+  width: 85%;
+  padding: 0 10px;
+  border-radius: 5px;
+  border: 1px solid whitesmoke;
+  outline: none;
+}

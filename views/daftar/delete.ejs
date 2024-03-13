@@ -1,13 +1,15 @@
 Checklist Film yang mau di delete :
 <br>
-<%= typeof filmUpdate !== 'undefined' ? `${filmUpdate} sudah dihapus` : "Tidak ada perubahan"%>
+<%= typeof filmUpdate !== 'undefined' ? `${filmUpdate} sudah dihapus` : "-"%>
 <form action="/daftar/delete" method="post">
     <ul>
         <% for (let i = 0; i < listFilm.length; i++) { %>
-            <li><%= listFilm[i]["title"]%></li>
-            <input type="radio" name="isDelete" value="<%= listFilm[i]["id"]%>">
+            <li class="del-list">
+                <input type="radio" name="isDelete" value="<%= listFilm[i]["imdbID"]%>">
+                <%= listFilm[i]["title"]%>
+            </li>
         <% } %>
     </ul>
-    <button type="reset">Reset</button>
-    <button onclick="getDelFilm()">Delete</button>
+    <button class="btn-primary" type="reset">Reset</button>
+    <button class="btn-danger" onclick="getDelFilm()">Delete</button>
 </form>
