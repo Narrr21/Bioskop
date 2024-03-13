@@ -1,1 +1,4 @@
-<h2>Welcome Home</h2>
+<h2>Welcome</h2>
+<% for (let i = 0; i < listFilm.length; i++) { %>
+    <img height="300" width="200" src="<%= listFilm[i]["poster"]%>" alt="">
+<% } %>

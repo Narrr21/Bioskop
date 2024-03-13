@@ -1,6 +1,6 @@
 <h2>List Film</h2>
-<main>
-    <% for (let i = 0; i < listFilm.length; i++) { %>
+<% for (let i = 0; i < listFilm.length; i++) { %>
+    <main class="container-film">
         <img height="150" width="100" src="<%= listFilm[i]["poster"]%>" alt="">
         <section class="film-desc">
             <ul>
@@ -10,5 +10,5 @@
                 <li class="list-film">Type : <%= listFilm[i]["workType"]%></li>
             </ul>
         </section>
-    <% } %>
-</main>
+    </main>
+<% } %>

@@ -19,7 +19,6 @@ router
         } else {
             res.redirect('/')
         }
-        console.log(film)
         res.render('search/index', {listFilm: film})
     })
 
