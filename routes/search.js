@@ -5,21 +5,21 @@ const db = require('../models/database')
 router
     .route('/')
     .get(async (req, res) => {
-        res.render('search/index', {listFilm: null})
+        res.render('search/index', {listFilm: null, search: "a"})
     })
     .post(async (req, res) => {
         const searchBy = req.body.searchBy
         const search = req.body.search
         if (searchBy == "id"){
-            film = [await db.getFilmById(search)]
+            var film = [await db.getFilmById(search)]
         } else if (searchBy == "title"){
-            film = [await db.getFilmByTitle(search)]
+            var film = [await db.getFilmByTitle(search)]
         } else if (searchBy == "year"){
-            film = await db.getFilmByYear(search)
+            var film = await db.getFilmByYear(search)
         } else {
             res.redirect('/')
         }
-        res.render('search/index', {listFilm: film})
+        res.render('search/index', {listFilm: film, search: searchBy})
     })
 
 module.exports = router

@@ -10,9 +10,9 @@
   <button class="btn-primary" type="submit">Search</button>
 
 </form>
-<% if (listFilm == null) { %>
+<% if (search == "a") { %>
   <h3>Silahkan cari film yang di inginkan</h3>
-<% } else if (listFilm.length > 0) { %>
+<% } else if (search == "year" && listFilm.length > 0 || search != "year" && listFilm[0]["workType"] == "movie" || search != "year" && listFilm[0]["workType"] == "series" ) { %>
 <ul>
   <% for (let i = 0; i < listFilm.length; i++) { %>
     <main class="container-film">
@@ -28,8 +28,6 @@
   </main>
   <% } %>
 </ul>
-<% } else if (listFilm.length == 0){ %>
-  <h3>Tidak ada film yang ditemukan</h3>
 <% } else { %>
-  <h3>Error</h3>
+  <h3>Tidak ada film yang ditemukan</h3>
 <% } %>

@@ -27,7 +27,11 @@ async function getFilmById(id)
     FROM film
     WHERE imdbID = ?
     `, [id])
-    return data[0][0]
+    if (data[0][0] !== undefined){
+        return data[0][0]
+    } else {
+        return NaN
+    }
 }
 
 async function getFilmByTitle(title) 
@@ -37,7 +41,12 @@ async function getFilmByTitle(title)
     FROM film
     WHERE title = ?
     `, [title])
-    return data[0][0]
+    if (data[0][0] !== undefined){
+        return data[0][0]
+    } else {
+        return NaN
+    }
+    
 }
 
 async function getFilmByYear(year) 
@@ -47,7 +56,11 @@ async function getFilmByYear(year)
     FROM film
     WHERE release_year = ?
     `, [year])
-    return data[0]
+    if (data[0][0] !== undefined){
+        return data[0]
+    } else {
+        return NaN
+    }
 }
 
 async function addFilm(imdbID, title, year, type, poster){
@@ -65,6 +78,9 @@ async function deleteFilmById(id){
     `, [id])
     return result
 }
+
+// getFilmById(124)
+// getFilmByYear()
 
 module.exports = {
     getAllFilm,
